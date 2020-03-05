@@ -9,12 +9,12 @@ package principal;
  *
  * @author Rls
  */
-public class Principal extends javax.swing.JFrame {
+public class Vendedor extends javax.swing.JFrame {
 
     /**
      * Creates new form Principal
      */
-    public Principal() {
+    public Vendedor() {
         initComponents();
         setLocationRelativeTo(null);    //centra formulario
         setExtendedState(MAXIMIZED_BOTH);//abrir ventana en maximizado
@@ -52,7 +52,7 @@ public class Principal extends javax.swing.JFrame {
 
         btnclientes.setText("CLIENTES");
 
-        btnguias.setText("VENDEDORES");
+        btnguias.setText("CAMBIAR CLAVE ACCESO");
 
         jButton4.setText("GUIAS");
 
@@ -199,20 +199,21 @@ public class Principal extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Vendedor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Vendedor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Vendedor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Vendedor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Principal().setVisible(true);
+                new Vendedor().setVisible(true);
             }
         });
     }
