@@ -5,11 +5,18 @@
  */
 package principal;
 
+import java.awt.BorderLayout;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Rls
  */
 public class Vendedor extends javax.swing.JFrame {
+
+    Producto prod = new Producto();
+    Cliente cli = new Cliente();
+    
 
     /**
      * Creates new form Principal
@@ -18,7 +25,8 @@ public class Vendedor extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);    //centra formulario
         setExtendedState(MAXIMIZED_BOTH);//abrir ventana en maximizado
-     //   this.setResizable(false);       //desactiva el boton maximizar
+        //   this.setResizable(false);       //desactiva el boton maximizar
+
     }
 
     /**
@@ -39,18 +47,28 @@ public class Vendedor extends javax.swing.JFrame {
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         jButton9 = new javax.swing.JButton();
-        jPanel4 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
+        PanelVendedor = new javax.swing.JDesktopPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         btnproducto.setText("PRODUCTOS");
+        btnproducto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnproductoActionPerformed(evt);
+            }
+        });
 
         btnclientes.setText("CLIENTES");
+        btnclientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnclientesActionPerformed(evt);
+            }
+        });
 
         btnguias.setText("CAMBIAR CLAVE ACCESO");
 
@@ -95,20 +113,7 @@ public class Vendedor extends javax.swing.JFrame {
                 .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(351, Short.MAX_VALUE))
-        );
-
-        jPanel4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+                .addContainerGap(320, Short.MAX_VALUE))
         );
 
         jPanel3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -124,7 +129,7 @@ public class Vendedor extends javax.swing.JFrame {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(991, Short.MAX_VALUE))
+                .addContainerGap(1011, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -136,6 +141,17 @@ public class Vendedor extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        javax.swing.GroupLayout PanelVendedorLayout = new javax.swing.GroupLayout(PanelVendedor);
+        PanelVendedor.setLayout(PanelVendedorLayout);
+        PanelVendedorLayout.setHorizontalGroup(
+            PanelVendedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        PanelVendedorLayout.setVerticalGroup(
+            PanelVendedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -143,11 +159,11 @@ public class Vendedor extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(PanelVendedor))
+                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(20, 20, 20))
         );
         jPanel1Layout.setVerticalGroup(
@@ -157,9 +173,9 @@ public class Vendedor extends javax.swing.JFrame {
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(8, 8, 8)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(PanelVendedor))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -181,6 +197,37 @@ public class Vendedor extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnproductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnproductoActionPerformed
+
+        if (prod.isShowing()) //consulto si ya hay abierta una ventana de internalframe
+        {
+            JOptionPane.showMessageDialog(null, "ventana abierta");         //mensaje de que está abierto si se desea
+        } else {
+            PanelVendedor.add(prod);  //la agrego al panel y le doy la ubicacion centrada
+            int x = (PanelVendedor.getWidth() / 2) - prod.getWidth() / 2;
+            int y = (PanelVendedor.getHeight() / 2) - prod.getHeight() / 2;
+            prod.setLocation(x, y);
+            prod.show(); //muestro el internalframe
+
+        }
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnproductoActionPerformed
+
+    private void btnclientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnclientesActionPerformed
+ if (cli.isShowing()) //consulto si ya hay abierta una ventana de internalframe
+        {
+            JOptionPane.showMessageDialog(null, "ventana abierta");         //mensaje de que está abierto si se desea
+        } else {
+            PanelVendedor.add(cli);  //la agrego al panel y le doy la ubicacion centrada
+            int x = (PanelVendedor.getWidth() / 2) - cli.getWidth() / 2;
+            int y = (PanelVendedor.getHeight() / 2) - cli.getHeight() / 2;
+            cli.setLocation(x, y);
+            cli.show(); //muestro el internalframe
+
+        }        // TODO add your handling code here:
+    }//GEN-LAST:event_btnclientesActionPerformed
 
     /**
      * @param args the command line arguments
@@ -219,6 +266,7 @@ public class Vendedor extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JDesktopPane PanelVendedor;
     private javax.swing.JButton btnclientes;
     private javax.swing.JButton btnguias;
     private javax.swing.JButton btnproducto;
@@ -230,7 +278,6 @@ public class Vendedor extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }
